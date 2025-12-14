@@ -1,105 +1,83 @@
-"""A variable in Python is essentially a named location in the computer's memory that stores a value. Think of it as a labeled box where you put different kinds of data.
+# ===============================================
+# PYTHON FUNDAMENTALS: VARIABLES EXPLANATION
+# ===============================================
 
-In Python, unlike some other programming languages, you do not need to explicitly declare the variable type (like integer, string, etc.) before using it. Python is a dynamically typed language, meaning the type of the variable is determined at runtime based on the value you assign to it."""
+# --- SECTION 1: VARIABLE FUNDAMENTALS ---
 
-"""1. Creating (Declaring) and Assigning Variables
-The process of creating a variable and giving it a value is called assignment, and it is done using the single equals sign (=)."""
+# A variable is a named location in memory used to store data.
+# Python is dynamically typed, meaning the type of the variable is determined 
+# by the value assigned, and does not need to be declared beforehand.
 
-# Example 1: Basic Assignment
-# Create an integer variable
-age = 30
+# 1.1 Creating and Assigning Variables
+print("--- 1.1: Basic Variable Assignment ---")
 
-# Create a string variable
-name = "Alice"
+# Assignment is done using the equals sign (=)
+age = 30           # Integer type
+name = "Alice"     # String type
+is_student = True  # Boolean type
 
-# Create a floating-point variable
-pi_value = 3.14159
+print(f"Variable 'age' stores: {age}")
+print(f"Variable 'name' stores: {name}")
+print(f"Variable 'is_student' stores: {is_student}")
 
-# Create a boolean variable
-is_student = True
+# We can check the type of a variable using the type() function
+print(f"Type of 'age': {type(age)}")
+print(f"Type of 'name': {type(name)}")
 
-# Print the values and types
-print(age)         # Output: 30
-print(name)        # Output: Alice
-print(type(age))   # Output: <class 'int'>
-print(type(name))  # Output: <class 'str'>
 
-"""2. Variable Naming Rules
-There are a few simple but important rules you must follow when naming your variables:
+# 1.2 Variable Naming Rules and Conventions
+print("\n--- 1.2: Naming Rules Examples ---")
 
-Must start with a letter (a-z, A-Z) or an underscore (_).
+# Valid names:
+user_id = 101       # Standard snake_case convention
+_temp_value = 5.5   # Starts with an underscore
+MaximumValue = 500  # Capital letters are fine
 
-Cannot start with a number.
-
-Can only contain alphanumeric characters (A-z, 0-9) and underscores (_).
-
-Case-sensitive: myVariable is different from myvariable.
-
-Cannot be one of Python's reserved keywords (e.g., for, if, while, True, False, class).
-"""
-# Example 2: Valid and Invalid Names
-
-# Valid variable names
-user_age = 25
-_temporary_value = 100
-MaximumValue = 500
-
-# Invalid variable names (would cause an error if executed)
+# Invalid names (would cause a SyntaxError if uncommented):
 # 2nd_data = "Error"
 # user-name = "Error"
-# while = 7  # 'while' is a reserved keyword
+# if = 7  # 'if' is a reserved keyword
 
-"""3. Conventions for Variable Naming
-While not mandatory, Python programmers typically follow these conventions (known as snake_case):
+print(f"Valid name example (user_id): {user_id}")
 
-Use all lowercase letters.
 
-Separate words with underscores."""
+# 1.3 Reassignment (Dynamic Typing)
+print("\n--- 1.3: Reassignment Example ---")
 
-# Example: user_input, total_price, start_time
+x = 10         # x is initially an integer
+print(f"x initial value and type: {x}, {type(x)}")
 
-"""4. Reassigning and Dynamic Typing
-A key concept is that a variable's value can be changed, and even its type can be changed, after it is created.
-"""
-# Example 3: Reassignment
+x = 20.5       # The variable x is reassigned a new value and type (float)
+print(f"x reassigned (float): {x}, {type(x)}")
 
-x = 10         # x is an integer (int)
-print(x)       # Output: 10
+x = "Hello"    # x is reassigned a string value and type
+print(f"x reassigned (string): {x}, {type(x)}")
 
-x = 20.5       # Reassign x with a new float value (x is now a float)
-print(x)       # Output: 20.5
 
-x = "Hello"    # Reassign x with a new string value (x is now a string)
-print(x)       # Output: Hello
-
-"""5. Assigning Multiple Variables
-Python allows you to assign a single value to multiple variables simultaneously, or assign different values to multiple variables in a single line.
-"""
-
-# Example 4: Multi-Assignment
+# 1.4 Multiple Assignment
+print("\n--- 1.4: Multiple Assignment ---")
 
 # Assign the same value to three variables
 a = b = c = 5
-print(a, b, c)  # Output: 5 5 5
+print(f"a, b, c (same value): {a}, {b}, {c}")
 
 # Assign different values to three variables (Tuple Unpacking)
-x, y, z = "Red", 10, False
-print(x)  # Output: Red
-print(y)  # Output: 10
-print(z)  # Output: False
+item_name, quantity, price = "Book", 2, 19.99
+print(f"Item: {item_name}, Quantity: {quantity}, Price: {price}")
 
-"""6. Variable Scope (Briefly)
-Variables exist within a certain scope. For instance, a variable created outside of any function has a global scope and can be used anywhere in the program. A variable created inside a function has a local scope and only exists while that function is running.
-"""
-global_var = "I am everywhere"  # Global variable
 
-def my_function():
-    local_var = "I am only in the function"  # Local variable
-    print(global_var)
+# --- SECTION 2: VARIABLE SCOPE (Brief Introduction) ---
+print("\n--- 2. Variable Scope Example ---")
 
-my_function()
-# print(local_var) # This would cause an error because local_var is out of scope
+global_message = "I exist everywhere"  # Global variable
 
-print(global_var)
+def show_scope():
+    local_number = 100  # Local variable (only exists inside this function)
+    print(f"Inside function: {global_message}")
+    print(f"Inside function: {local_number}")
 
-# In summary: Python variables are flexible, dynamically typed containers for data. You create them instantly with an assignment (=), and they must follow simple naming rules.
+show_scope()
+print(f"Outside function: {global_message}")
+
+# The line below would cause an error because local_number is out of scope:
+# print(local_number)
