@@ -19,7 +19,10 @@ This repository is designed for:
 ### Functions & OOP
 - Functions, `*args`, `**kwargs`
 - Classes & objects
-- Inheritance, polymorphism
+- Inheritance
+- Polymorphism
+- Encapsulation
+- Abstraction
 - Method Resolution Order (MRO)
 
 ### Exception Handling
